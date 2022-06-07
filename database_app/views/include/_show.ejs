@@ -1,0 +1,29 @@
+<% for(var i = 0; i < records.length; i++) { %>
+<tr>
+    <td><%= i + 1 %></td>
+    <td><%= records[i].name %></td>
+    <td><%= records[i].website %></td>
+    <td><%= records[i].size %></td>
+    <td><%= records[i].revenue %></td>
+    <td><%= records[i].hq %></td>
+    <td><%= records[i].sales %></td>
+    <td><%= records[i].india %></td>
+    <td><%= records[i].canada %></td>
+    <td><%= records[i].uk %></td>
+    <td><%= records[i].usa %></td>
+    <td><%= records[i].contacts %>
+        <a href="/contacts-list?id=<%= records[i]._id%>" class="btn border-shadow update">
+            <span class="text">View list</span>
+        </a>
+    </td>
+    <td><%= records[i].priority %></td>
+    <td>
+        <a href="/update-record?id=<%= records[i]._id%>" class="btn border-shadow update">
+            <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
+        </a>
+        <a class="btn border-shadow delete" data-id=<%= records[i]._id%> >
+            <span class="text-gradient"><i class="fas fa-times"></i></span>
+        </a>
+    </td>
+</tr>
+<% } %>
