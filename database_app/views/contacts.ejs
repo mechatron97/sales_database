@@ -1,0 +1,41 @@
+<!-- include header -->
+<%- include('include/_header') %>
+<!-- /include header -->
+
+
+ <!-- Main Site -->
+ <main id="site-main">
+    <div class="container-fluid">
+        <div class="box-nav d-flex justify-between">
+            <a href="/add-contact" class="btn btn-outline">
+                <span class="text-gradient">New Contact<i class="fas fa-user"></i></span>
+            </a>
+        </div>
+
+        <!-- form handling -->
+        <form action="/contacts" method="POST">
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone Number</th>
+                        <th>LinkedIn Profile</th>
+                        <th>Comments</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%- include('include/_contacts') %> 
+                </tbody>
+            </table>
+        </form>
+    </div>
+</main>
+<!-- /Main Site -->
+
+
+<!-- include footer -->
+<%- include('include/_footer') %>
+<!-- /include footer -->
