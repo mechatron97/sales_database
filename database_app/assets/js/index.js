@@ -1,7 +1,4 @@
 
-
-
-
 $("#add_record").submit(function(event){
     if(!request){
         alert("Content cannot be empty");
@@ -22,17 +19,39 @@ $("#update_record").submit(function(event){
     })
 
 
-    var request = {
+    var request1 = {
         "url" : `http://localhost:3000/api/records/${data.id}`,
         "method" : "PUT",
         "data" : data
     }
 
-    $.ajax(request).done(function(response){
+    var request2 = {
+        "url" : `http://localhost:3000/api/contacts/${data.id}`,
+        "method" : "PUT",
+        "data" : data
+    }
+
+    var request3 = {
+        "url" : `http://localhost:3000/api/locations/${data.id}`,
+        "method" : "PUT",
+        "data" : data
+    }
+
+    $.ajax(request1).done(function(response){
+        alert("Data Updated Successfully");
+    })
+
+    $.ajax(request2).done(function(response){
+        alert("Data Updated Successfully");
+    })
+
+    $.ajax(request3).done(function(response){
         alert("Data Updated Successfully");
     })
 
 })
+
+
 
 if(window.location.pathname == "/"){
     $ondelete = $(".table tbody td a.delete");
@@ -53,3 +72,44 @@ if(window.location.pathname == "/"){
 
     })
 }
+
+if(window.location.pathname == "/contacts"){
+    $ondelete = $(".table tbody td a.delete");
+    $ondelete.click(function(){
+        var id = $(this).attr("data-id")
+
+        var request = {
+            "url" : `http://localhost:3000/api/contacts/${id}`,
+            "method" : "DELETE"
+        }
+
+        if(confirm("Do you really want to delete this record?")){
+            $.ajax(request).done(function(response){
+                alert("Data Deleted Successfully");
+                location.reload();
+            })
+        }
+
+    })
+}
+
+if(window.location.pathname == "/locations"){
+    $ondelete = $(".table tbody td a.delete");
+    $ondelete.click(function(){
+        var id = $(this).attr("data-id")
+
+        var request = {
+            "url" : `http://localhost:3000/api/locations/${id}`,
+            "method" : "DELETE"
+        }
+
+        if(confirm("Do you really want to delete this record?")){
+            $.ajax(request).done(function(response){
+                alert("Data Deleted Successfully");
+                location.reload();
+            })
+        }
+
+    })
+}
+

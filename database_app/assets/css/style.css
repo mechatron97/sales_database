@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 :root{
-    --dark: #2b2d42;
+    --dark: #30c744;
     --light:#adb5bd;
     --border:#dee2e6;
     --border-btn:#edf2f4;
@@ -16,7 +16,7 @@
 
 a{
     text-decoration: none;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Jost', sans-serif;
     margin-bottom: 1.5em;
 }
 
@@ -60,20 +60,20 @@ a{
 }
 
 .text-gradient{
-    background: linear-gradient(to right, blue, black);
+    background: linear-gradient(to right, #9bda5a , #46ab68);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 #header nav{
-    background-color: #06d6a0;
+    background-color: white;
     padding: 1em 0;
     width: 100%;
 }
 #site-main{
     margin: 0.5em;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Titillium Web', sans-serif;;
 }
 
 #site-main .container .box-nav > a{
@@ -111,7 +111,7 @@ table{
 }
 
 .table .thead-dark th{
-    color: white;
+    color: #232323;
     background-color: var(--dark);
     border-color: var(--light);
 }
@@ -162,7 +162,7 @@ table{
     padding: .6em 1em;
     margin: .5em 0;
     border: 1px solid var(--border);
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Titillium Web', sans-serif;
     font-size: 1em;
     border-radius: .2em;
 }
@@ -171,9 +171,9 @@ table{
 #update_record .form-group .btn{
     width: 100%;
     padding: .9em 1em;
-    background-color: #16db93;
+    background-color: #30c744;
     border: none;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Titillium Web', sans-serif;
     font-size: 1em;
     cursor: pointer;
     border-radius: .2em;

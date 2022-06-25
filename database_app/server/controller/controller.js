@@ -1,4 +1,4 @@
-var Recorddb = require('../model/model');
+var {recorddbs} = require('../model/model');
 
 // create and save new user
 exports.create = (req,res)=>{
@@ -9,11 +9,14 @@ exports.create = (req,res)=>{
     }
 
     // new user
-    const record = new Recorddb({
+    const record = new recorddbs({
         name : req.body.name,
         website : req.body.website,
         size: req.body.size,
-        revenue : req.body.revenue
+        revenue : req.body.revenue,
+        hq: req.body.hq,
+        sales: req.body.sales,
+        priority: req.body.priority
     })
 
     // save user in the database
@@ -37,7 +40,7 @@ exports.find = (req, res)=>{
     if(req.query.id){
         const id = req.query.id;
 
-        Recorddb.findById(id)
+        recorddbs.findById(id)
             .then(data =>{
                 if(!data){
                     res.status(404).send({ message : "Record not found with id "+ id})
@@ -50,7 +53,7 @@ exports.find = (req, res)=>{
             })
 
     }else{
-        Recorddb.find()
+        recorddbs.find()
             .then(record => {
                 res.send(record)
             })
@@ -72,7 +75,7 @@ exports.update = (req, res)=>{
     }
 
     const id = req.params.id;
-    Recorddb.findByIdAndUpdate(id, req.body, { useFindAndModify: false})
+    recorddbs.findByIdAndUpdate(id, req.body, { useFindAndModify: false})
         .then(data => {
             if(!data){
                 res.status(404).send({ message : `Cannot Update record with ${id}.`})
@@ -89,7 +92,7 @@ exports.update = (req, res)=>{
 exports.delete = (req, res)=>{
     const id = req.params.id;
 
-    Recorddb.findByIdAndDelete(id)
+    recorddbs.findByIdAndDelete(id)
         .then(data => {
             if(!data){
                 res.status(404).send({ message : `Cannot Delete with id ${id}.`})

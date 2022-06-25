@@ -1,37 +1,50 @@
 const mongoose = require('mongoose');
+const {Schema} = mongoose;
 
-var schema = new mongoose.Schema({
-    name : {
-        type : String,
-        required: true,
-        unique: true
-    },
-    website : {
+const recordSchema = Schema({
+    name: {
         type: String,
         required: true,
         unique: true
     },
-    size : String,
-    revenue : String,
-    hq: {
+    website: {
         type: String,
-        required: false
+        required: true,
+        unique: true
     },
-    sales: {
-        type: String,
-        required: false
-    },
-    india: String,
-    canada: String,
-    uk: String,
-    usa: String,
-    contacts: {
-        type: String,
-        required: false
-    },
-    priority: Number
-})
+    size: String,
+    revenue: String,
+    hq: String,
+    sales: String,
+    priority: String,
+    // locations: [{type: Schema.Types.ObjectId, ref: 'locationsdbs'}],
+    // contacts: [{type: Schema.Types.ObjectId, ref: 'contactdbs'}]
+});
 
-const Recorddb = mongoose.model('recorddb', schema);
+const recorddbs =  mongoose.model('recorddbs', recordSchema);
 
-module.exports = Recorddb;
+// var schema = new mongoose.Schema({
+//     name : {
+//         type : String,
+//         required: true,
+//         unique: true
+//     },
+//     website : {
+//         type: String,
+//         required: true,
+//         unique: true
+//     },
+//     size : String,
+//     revenue : String,
+//     hq: String,
+//     sales: String,
+//     priority: Number,
+//     locations: [{type: Schema.Types.ObjectId, ref: 'locations'}],
+//     contacts: [{type: Schema.Types.ObjectId, ref: 'contacts'}]
+// })
+
+// const Recorddb = mongoose.model('recorddb', schema);
+
+module.exports = {
+    recorddbs
+}

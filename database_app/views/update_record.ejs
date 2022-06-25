@@ -8,7 +8,7 @@
     <div class="container">
         <div class="box-nav d-flex justify-between">
            <div class="filter">
-               <a href="/"><i class="fas fa-angle-double-left"></i> All Records</a>
+               <a href="/"><i class="fas fa-arrow-left"></i> All Records</a>
            </div>
         </div>
         <div class="form-title text-center">
@@ -21,58 +21,38 @@
  <form action="/api/records/" method="POST" id="update_record">
     <div class="new_record">
         <div class="form-group">
-            <label for="name" class="text-light">Company Name</label>
+            <label for="name" class="text">Company Name</label>
             <input type="hidden" name="id" value="<%= record._id %>">
             <input type="text" name="name" value="<%= record.name %>" placeholder="ABC Company">
         </div>
         <div class="form-group">
-            <label for="website" class="text-light">Website</label>
+            <label for="website" class="text">Website</label>
             <input type="text" name="website" value="<%= record.website%>" placeholder="www.example.com">
         </div>
         <div class="form-group">
-            <label for="size" class="text-light">Size</label>
+            <label for="size" class="text">Size</label>
             <input type="text" name="size" value="<%= record.size%>" placeholder="">
         </div>
 
         <div class="form-group">
-            <label for="revenue" class="text-light">Revenue</label>
+            <label for="revenue" class="text">Revenue</label>
             <input type="text" name="revenue" value="<%= record.revenue%>" placeholder="">
         </div>
         <div class="form-group">
-            <label for="hq" class="text-light">HeadQuarters</label>
+            <label for="hq" class="text">HeadQuarters</label>
             <input type="text" name="hq" value="<%= record.hq%>" placeholder="">
         </div>
         <div class="form-group">
-            <label for="sales" class="text-light">Sales Contact</label>
+            <label for="sales" class="text">Sales Contact</label>
             <input type="text" name="hq" value="<%= record.sales%>" placeholder="">
         </div>
         <div class="form-group">
-            <label for="india" class="text-light">India</label>
-            <input type="text" name="india" value="<%= record.india%>" placeholder="">
-        </div>
-        <div class="form-group">
-            <label for="canada" class="text-light">Canada</label>
-            <input type="text" name="canada" value="<%= record.canada%>" placeholder="">
-        </div>
-        <div class="form-group">
-            <label for="uk" class="text-light">UK</label>
-            <input type="text" name="uk" value="<%= record.uk%>" placeholder="">
-        </div>
-        <div class="form-group">
-            <label for="usa" class="text-light">USA</label>
-            <input type="text" name="usa" value="<%= record.usa%>" placeholder="">
-        </div>
-        <div class="form-group">
-            <label for="contacts" class="text-light">Contact Persons</label>
-            <input type="text" name="contacts" value="<%= record.contacts%>" placeholder="">
-        </div>
-        <div class="form-group">
-            <label for="priority" class="text-light">Priority</label>
+            <label for="priority" class="text">Priority</label>
             <input type="text" name="priority" value="<%= record.priority%>" placeholder="">
         </div>
 
         <div class="form-group">
-            <button type="submit" class="btn text-dark update">Save</button>
+            <button type="submit" class="btn text-light update">Save</button>
         </div>
 
     </div>
