@@ -1,17 +1,12 @@
 const mongoose = require('mongoose');
 const {Schema} = mongoose;
-const recorddbs = require('./model');
 
 const locationsSchema = Schema({
-    _id: {
-        type: Schema.Types.ObjectId,
-        ref: 'recorddbs'
-    },
-    person : String,
-    email : String,
-    phone : String,
-    linkedin : String,
-    comments: String
+    
+    india : String,
+    canada : String,
+    uk : String,
+    usa : String
 });
 
 const locationsdbs = mongoose.model('locationsdbs', locationsSchema);
