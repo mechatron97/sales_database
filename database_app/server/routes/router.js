@@ -12,7 +12,8 @@ const controller3 = require('../controller/controller3');
  */
 route.get('/', services.homeRoutes);
 
-// route.get('/records', services.records);
+route.get('/emails', services.emails);
+route.get('/records', services.records);
 route.get('/contacts', services.contacts);
 route.get('/locations', services.locations);
 
@@ -37,6 +38,8 @@ route.post('/api/records', controller.create);
 route.post('/api/contacts', controller2.create);
 route.post('/api/locations', controller3.create);
 
+route.get('/api/', controller.find);
+route.get('/api/emails', controller.find);
 route.get('/api/records', controller.find);
 route.get('/api/contacts', controller2.find);
 route.get('/api/locations', controller3.find);

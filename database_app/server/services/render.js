@@ -4,9 +4,9 @@ const { response } = require('express');
 
 exports.homeRoutes = (req, res) => {
     // Make a get request to /api/users
-    axios.get('http://localhost:3000/api/records')
+    axios.get('http://localhost:3000/api/')
         .then(function(response){
-            res.render('index', { records : response.data });
+            res.render('index', {index: response.data});
         })
         .catch(err => {
             res.send(err);
@@ -23,6 +23,28 @@ exports.add_contact = (req, res) =>{
 
 exports.add_location = (req, res) =>{
     res.render('add_location');
+}
+
+exports.records = (req, res) => {
+    // Make a get request to /api/users
+    axios.get('http://localhost:3000/api/records')
+        .then(function(response){
+            res.render('records', { records : response.data });
+        })
+        .catch(err => {
+            res.send(err);
+        })
+}
+
+exports.emails = (req, res) => {
+    // Make a get request to /api/users
+    axios.get('http://localhost:3000/api/emails')
+        .then(function(response){
+            res.render('emails', { emails : response.data });
+        })
+        .catch(err => {
+            res.send(err);
+        })
 }
 
 exports.contacts = (req, res) => {

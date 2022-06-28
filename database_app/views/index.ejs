@@ -7,32 +7,25 @@
     <!-- Main Site -->
     <main id="site-main">
         <div class="container-fluid">
-            <div class="box-nav d-flex justify-between">
-                <a href="/add-record" class="btn btn-outline">
-                    <span class="text-gradient">New Record<i class="fas fa-user"></i></span>
-                </a>
-            </div>
 
             <!-- form handling -->
             <form action="/" method="POST">
                 <table class="table table-bordered">
                     <thead class="thead-dark">
                         <tr>
-                            <th>ID</th>
-                            <th>Company Name</th>
-                            <th>Website</th>
-                            <th>Size</th>
-                            <th>Revenue</th>
-                            <th>HeadQuarters</th>
-                            <th>Sales Contact</th>
-                            <th>Priority</th>
-                            <th>Locations</th>
-                            <th>Contact Persons</th>
-                            <th>Action</th>
+                            <h2>
+                                Welcome. Select database:
+                            </h2>
+                            <a href="/records">
+                                <h3>Sales Data: In Progress</h3>
+                            </a>
+                            <a href="/emails">
+                                <h3>Email Subscriptions List</h3>
+                            </a>
                         </tr>
                     </thead>
                     <tbody>
-                        <%- include('include/_records') %>
+                        
                     </tbody>
                 </table>
             </form>
