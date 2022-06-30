@@ -1,0 +1,28 @@
+
+<!-- include header -->
+<%- include('include/_header') %>
+<!-- /include header -->
+
+  <!-- Main Site -->
+  <main id="site-main">
+    <div class="container">
+        <div class="box-nav d-flex justify-between">
+           <div class="filter">
+               <a href="/emails" class="btn btn-outline"><i class="fas fa-angle-double-left"></i> All Subscriptions</a>
+           </div>
+        </div>
+        <div class="form-title text-center">
+            <h2 class="text-dark">New Subscription</h2>
+            <span class="text-light">Use the below form to add a new subscription</span>
+        </div>
+
+        <!-- add user form -->
+        <%- include('include/_emailform') %>
+       
+    </div>
+</main>
+<!-- /Main Site -->
+
+<!-- include footer -->
+<%- include('include/_footer') %>
+<!-- /include footer -->
