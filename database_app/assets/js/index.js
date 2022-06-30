@@ -37,6 +37,12 @@ $("#update_record").submit(function(event){
         "data" : data
     }
 
+    var request4 = {
+        "url" : `http://localhost:3000/api/emails/${data.id}`,
+        "method" : "PUT",
+        "data" : data
+    }
+
     $.ajax(request1).done(function(response){
         alert("Data Updated Successfully");
     })
@@ -46,6 +52,10 @@ $("#update_record").submit(function(event){
     })
 
     $.ajax(request3).done(function(response){
+        alert("Data Updated Successfully");
+    })
+
+    $.ajax(request4).done(function(response){
         alert("Data Updated Successfully");
     })
 
@@ -100,6 +110,26 @@ if(window.location.pathname == "/locations"){
 
         var request = {
             "url" : `http://localhost:3000/api/locations/${id}`,
+            "method" : "DELETE"
+        }
+
+        if(confirm("Do you really want to delete this record?")){
+            $.ajax(request).done(function(response){
+                alert("Data Deleted Successfully");
+                location.reload();
+            })
+        }
+
+    })
+}
+
+if(window.location.pathname == "/emails"){
+    $ondelete = $(".table tbody td a.delete");
+    $ondelete.click(function(){
+        var id = $(this).attr("data-id")
+
+        var request = {
+            "url" : `http://localhost:3000/api/emails/${id}`,
             "method" : "DELETE"
         }
 
