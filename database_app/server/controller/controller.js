@@ -1,4 +1,6 @@
 var {recorddbs} = require('../model/model');
+const { contactdbs } = require('../model/model2');
+
 
 // create and save new user
 exports.create = (req,res)=>{
@@ -24,7 +26,7 @@ exports.create = (req,res)=>{
         .save(record)
         .then(data => {
             //res.send(data)
-            res.redirect('/');
+            res.redirect('/records');
         })
         .catch(err =>{
             res.status(500).send({

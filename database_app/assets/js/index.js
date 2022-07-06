@@ -43,6 +43,12 @@ $("#update_record").submit(function(event){
         "data" : data
     }
 
+    var request5 = {
+        "url" : `http://localhost:3000/api/reviews/${data.id}`,
+        "method" : "PUT",
+        "data" : data
+    }
+
     $.ajax(request1).done(function(response){
         alert("Data Updated Successfully");
     })
@@ -59,11 +65,15 @@ $("#update_record").submit(function(event){
         alert("Data Updated Successfully");
     })
 
+    $.ajax(request5).done(function(response){
+        alert("Data Updated Successfully");
+    })
+
 })
 
 
 
-if(window.location.pathname == "/"){
+if(window.location.pathname == "/records"){
     $ondelete = $(".table tbody td a.delete");
     $ondelete.click(function(){
         var id = $(this).attr("data-id")
@@ -130,6 +140,26 @@ if(window.location.pathname == "/emails"){
 
         var request = {
             "url" : `http://localhost:3000/api/emails/${id}`,
+            "method" : "DELETE"
+        }
+
+        if(confirm("Do you really want to delete this record?")){
+            $.ajax(request).done(function(response){
+                alert("Data Deleted Successfully");
+                location.reload();
+            })
+        }
+
+    })
+}
+
+if(window.location.pathname == "/reviews"){
+    $ondelete = $(".table tbody td a.delete");
+    $ondelete.click(function(){
+        var id = $(this).attr("data-id")
+
+        var request = {
+            "url" : `http://localhost:3000/api/reviews/${id}`,
             "method" : "DELETE"
         }
 

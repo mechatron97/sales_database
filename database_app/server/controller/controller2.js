@@ -39,7 +39,7 @@ exports.find = (req, res)=>{
         const id = req.query.id;
 
         contactdbs.findById(id)
-            .then(data =>{
+        .then(data =>{
                 if(!data){
                     res.status(404).send({ message : "Record not found with id "+ id})
                 }else{

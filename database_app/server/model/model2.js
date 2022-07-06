@@ -12,4 +12,4 @@ const contactsSchema = Schema({
 
 const contactdbs = mongoose.model('contactdbs', contactsSchema);
 
-module.exports = {contactdbs};
+module.exports = { contactdbs };

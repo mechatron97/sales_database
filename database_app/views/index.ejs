@@ -9,23 +9,34 @@
         <div class="container-fluid">
 
             <!-- form handling -->
-            <form action="/" method="POST">
+            <form method="POST">
                 <table class="table table-bordered">
-                    <thead class="thead-dark">
-                        <tr>
-                            <h2>
-                                Welcome. Select database:
-                            </h2>
-                            <a href="/records">
+                    <div>
+                        <thead class="thead-dark">
+                            <tr>
+                                <h2 class="text-center">
+                                    Welcome. Select database:
+                                </h2>
+                            </tr>
+                        </thead>
+                    </div>
+                    
+                    <tbody>
+                        <div class="text-center">
+                            <a href="/records" class="btn btn-outline">
                                 <h3>Sales Data: In Progress</h3>
                             </a>
-                            <a href="/emails">
-                                <h3>Email Subscriptions List</h3>
+                        </div>
+                        <div class="text-center">
+                            <a href="/reviews" class="btn btn-outline">
+                                <h3>Sales Data: In Review</h3>
                             </a>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        
+                        </div>
+                       <div class="text-center">
+                        <a href="/emails" class="btn btn-outline">
+                            <h3>Email Subscriptions List</h3>
+                        </a>
+                       </div>
                     </tbody>
                 </table>
             </form>

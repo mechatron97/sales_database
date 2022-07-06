@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 const {Schema} = mongoose;
 
-const recordSchema = Schema({
+const recordSchema = new Schema({
+
     name: {
         type: String,
         required: true,
@@ -16,11 +17,10 @@ const recordSchema = Schema({
     revenue: String,
     hq: String,
     sales: String,
-    priority: String,
-    locations: [{type: Schema.Types.ObjectId, ref: 'locationsdbs'}],
-    contacts: [{type: Schema.Types.ObjectId, ref: 'contactdbs'}]
+    priority: String
 });
+
 
 const recorddbs =  mongoose.model('recorddbs', recordSchema);
 
-module.exports = { recorddbs }
+module.exports = { recorddbs };
