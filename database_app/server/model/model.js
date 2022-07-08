@@ -13,6 +13,7 @@ const recordSchema = new Schema({
         required: true,
         unique: true
     },
+    contacts:[],
     size: String,
     revenue: String,
     hq: String,

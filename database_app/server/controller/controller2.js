@@ -1,4 +1,5 @@
 var {contactdbs} = require('../model/model2');
+var {recorddbs} = require('../model/model');
 
 // create and save new user
 exports.create = (req,res)=>{
@@ -23,6 +24,13 @@ exports.create = (req,res)=>{
         .then(data => {
             //res.send(data)
             res.redirect('/contacts');
+            /*
+            const id = req.query.id;
+           contactdbs.updateOne(
+            { "_id": ObjectId("62c5960fab09861c43aff3c2") },
+            { "$push": { contacts: data["_id"] } }
+            )*/
+
         })
         .catch(err =>{
             res.status(500).send({
@@ -34,16 +42,26 @@ exports.create = (req,res)=>{
 
 // retrieve and return all users/ retrieve and return a single user
 exports.find = (req, res)=>{
-
+    
     if(req.query.id){
         const id = req.query.id;
-
-        contactdbs.findById(id)
+        recorddbs.findById(id)
         .then(data =>{
+             
                 if(!data){
                     res.status(404).send({ message : "Record not found with id "+ id})
                 }else{
-                    res.send(data)
+                    contactdbs.find({ "_id" : { "$in" : data["contacts"] } })
+                    .then(data1 =>{
+                        if(!data){
+                            res.status(404).send({ message : "Record not found with id "+ id})
+                        }else{
+                        res.send(data1)
+                        }
+                    })
+                    .catch(err =>{
+                        res.status(500).send({ message: "Error retrieving record with id " + id})
+                    })
                 }
             })
             .catch(err =>{

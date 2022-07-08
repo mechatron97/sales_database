@@ -57,13 +57,14 @@ exports.emails = (req, res) => {
 
 exports.contacts = (req, res) => {
     // Make a get request to /api/users
-    axios.get('http://localhost:3000/api/contacts')
+    axios.get('http://localhost:3000/api/contacts?id='+req.query["id"])
         .then(function(response){
             res.render('contacts', { contacts : response.data });
         })
         .catch(err => {
             res.send(err);
         })
+        
 }
 
 exports.locations = (req, res) => {
