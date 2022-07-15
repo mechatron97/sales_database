@@ -41,6 +41,16 @@ a{
 
 .text-center{
     text-align: center;
+    color: #30c744;
+    font-weight: bolder;
+}
+
+.text-success{
+    font-weight: bolder;
+}
+
+.btn:hover{
+    background-color: #dee2e6;
 }
 
 .border-shadow{

@@ -10,7 +10,9 @@ exports.create = (req,res)=>{
 
     // new user
     const contact = new contactdbs({
+        company: req.body.company,
         person : req.body.person,
+        designation : req.body.designation,
         email : req.body.email,
         phone : req.body.phone,
         linkedin : req.body.linkedin,

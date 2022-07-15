@@ -24,6 +24,7 @@
     "jquery": "^3.6.0",
     "mongoose": "^6.4.0",
     "morgan": "^1.10.0",
-    "nodemon": "^2.0.18"
+    "nodemon": "^2.0.18",
+    "paginate": "^0.1.1"
   }
 }

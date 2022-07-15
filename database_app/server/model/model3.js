@@ -3,6 +3,7 @@ const {Schema} = mongoose;
 
 const locationsSchema = Schema({
     
+    company: String,
     india : String,
     canada : String,
     uk : String,

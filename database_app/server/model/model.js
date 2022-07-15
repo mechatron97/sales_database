@@ -3,16 +3,8 @@ const {Schema} = mongoose;
 
 const recordSchema = new Schema({
 
-    name: {
-        type: String,
-        required: true,
-        unique: true
-    },
-    website: {
-        type: String,
-        required: true,
-        unique: true
-    },
+    name: String,
+    website: String,
     size: String,
     revenue: String,
     hq: String,

@@ -18,7 +18,8 @@ exports.add_record = (req, res) =>{
 }
 
 exports.add_contact = (req, res) =>{
-    res.render('add_contact');
+
+        res.render('add_contact');
 }
 
 exports.add_location = (req, res) =>{

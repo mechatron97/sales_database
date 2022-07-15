@@ -10,6 +10,7 @@ exports.create = (req,res)=>{
 
     // new user
     const location = new locationsdbs({
+        company: req.body.company,
         india : req.body.india,
         canada : req.body.canada,
         uk : req.body.uk,

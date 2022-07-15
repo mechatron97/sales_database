@@ -1,5 +1,4 @@
 var {recorddbs} = require('../model/model');
-const { contactdbs } = require('../model/model2');
 
 
 // create and save new user
