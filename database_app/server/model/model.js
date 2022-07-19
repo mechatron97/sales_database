@@ -3,7 +3,7 @@ const {Schema} = mongoose;
 
 const recordSchema = new Schema({
 
-    name: String,
+    company: String,
     website: String,
     size: String,
     revenue: String,

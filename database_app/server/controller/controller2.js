@@ -1,4 +1,6 @@
 var {contactdbs} = require('../model/model2');
+var {recorddbs} = require('../model/model');
+const db = require('../database/connection');
 
 // create and save new user
 exports.create = (req,res)=>{
@@ -7,6 +9,7 @@ exports.create = (req,res)=>{
         res.status(400).send({ message : "Content cannot be empty"});
         return;
     }
+
 
     // new user
     const contact = new contactdbs({
@@ -18,6 +21,7 @@ exports.create = (req,res)=>{
         linkedin : req.body.linkedin,
         comments : req.body.comments
     })
+
 
     // save user in the database
     contact

@@ -1,4 +1,6 @@
+const { default: mongoose, connect } = require('mongoose');
 var {recorddbs} = require('../model/model');
+var {connectDB} = require('../database/connection');
 
 
 // create and save new user
@@ -11,7 +13,7 @@ exports.create = (req,res)=>{
 
     // new user
     const record = new recorddbs({
-        name : req.body.name,
+        company: req.body.company,
         website : req.body.website,
         size: req.body.size,
         revenue : req.body.revenue,
@@ -34,6 +36,7 @@ exports.create = (req,res)=>{
         });
 
 }
+
 
 // retrieve and return all users/ retrieve and return a single user
 exports.find = (req, res)=>{
