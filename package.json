@@ -1,5 +1,5 @@
 {
-  "name": "crud_app",
+  "name": "database_app",
   "version": "1.0.0",
   "description": "crud application with express and mongodb",
   "main": "server.js",
@@ -11,7 +11,7 @@
     "crud",
     "mongodb"
   ],
-  "author": "",
+  "author": "Sriharsh",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.21.0",
@@ -27,5 +27,13 @@
     "morgan": "^1.10.0",
     "nodemon": "^2.0.18",
     "paginate": "^0.1.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mechatron97/sales_database.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mechatron97/sales_database/issues"
+  },
+  "homepage": "https://github.com/mechatron97/sales_database#readme"
 }
