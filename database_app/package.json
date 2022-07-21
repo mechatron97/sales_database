@@ -1,0 +1,24 @@
+{
+  "name": "database_app",
+  "version": "1.0.0",
+  "description": "In this project, we are going to create a database application with express and mongodb.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "-": "^0.0.1",
+    "bootstrap": "^5.2.0",
+    "debug": "^4.3.4",
+    "express": "^4.18.1",
+    "mongoose": "^6.4.5",
+    "morgan": "^1.10.0",
+    "serve": "^14.0.1"
+  },
+  "engines": {
+    "node": "18.5.0"
+  }
+}
