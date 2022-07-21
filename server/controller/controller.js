@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const {recorddbs, contactdbs} = require('../model/model');
-const {db} = require('../database/connection').default;
+const {db} = require('../database/connection');
 
 // create and save new user
 exports.create = (req,res)=>{
