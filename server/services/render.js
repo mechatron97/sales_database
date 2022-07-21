@@ -4,7 +4,7 @@ const { response } = require('express');
 
 exports.homeRoutes = (req, res) => {
     // Make a get request to /api/users
-    axios.get('https://polar-springs-56206.herokuapp.com/')
+    axios.get('http://localhost:3000/api/')
         .then(function(response){
             res.render('index', {index: response.data});
         })
