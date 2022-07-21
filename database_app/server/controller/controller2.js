@@ -1,6 +1,5 @@
-var {contactdbs} = require('../model/model2');
-var {recorddbs} = require('../model/model');
-const db = require('../database/connection');
+const mongoose = require('mongoose');
+const {contactdbs} = require('../model/model');
 
 // create and save new user
 exports.create = (req,res)=>{

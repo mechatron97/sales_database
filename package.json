@@ -26,7 +26,11 @@
     "mongoose": "^6.4.0",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.18",
-    "paginate": "^0.1.1"
+    "paginate": "^0.1.1",
+    "serve": "^14.0.1"
+  },
+  "engines": {
+    "node": "18.5.0"
   },
   "repository": {
     "type": "git",

@@ -1,5 +1,17 @@
 const mongoose = require('mongoose');
-const {Schema} = mongoose;
+const Schema = mongoose.Schema;
+
+const contactsSchema = new Schema({
+    
+    company: String,
+    person : String,
+    designation: String,
+    email : String,
+    phone : String,
+    linkedin : String,
+    comments: String,
+    
+});
 
 const recordSchema = new Schema({
 
@@ -9,10 +21,13 @@ const recordSchema = new Schema({
     revenue: String,
     hq: String,
     sales: String,
-    priority: String
+    priority: String,
+    contacts:[contactsSchema]
 });
 
 
 const recorddbs =  mongoose.model('recorddbs', recordSchema);
 
-module.exports = { recorddbs };
+const contactdbs = mongoose.model('contactdbs', contactsSchema);
+
+module.exports = {recorddbs, contactdbs};
