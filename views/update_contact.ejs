@@ -1,0 +1,66 @@
+
+<!-- include header -->
+<%- include('include/_header') %>
+<!-- /include header -->
+
+  <!-- Main Site -->
+  <main id="site-main">
+    <div class="container">
+        <div class="box-nav d-flex justify-between">
+           <div class="filter">
+               <a href="/contacts"><i class="fas fa-arrow-left"></i> All Contacts</a>
+           </div>
+        </div>
+        <div class="form-title text-center">
+            <h2 class="text-dark">Update Contact</h2>
+            <span class="text-light">Use the below form to update a contact</span>
+        </div>
+
+        <!-- add user form -->
+         <!-- form handling -->
+ <form action="/api/contacts/" method="POST" id="update_record">
+    <div class="new_record">
+        <div class="form-group">
+        <div class="form-group">
+            <label for="company" class="text">Company Name</label>
+            <input type="text" name="company" value="<%= contact.company %>" placeholder="ABC Company">
+        </div>
+        <label for="name" class="text">Name</label>
+            <input type="hidden" name="id" value="<%= contact._id %>">
+            <input type="text" name="person" value="<%= contact.person %>" placeholder="John Doe">
+        </div>
+        <div class="form-group">
+        <label for="name" class="text">Designation</label>
+            <input type="text" name="designation" value="<%= contact.designation %>" placeholder="Executive">
+        </div>
+        <div class="form-group">
+            <label for="email" class="text">Email</label>
+            <input type="text" name="email" value="<%= contact.email %>" placeholder="john@example.com">
+        </div>
+        <div class="form-group">
+            <label for="phone" class="text">Phone Number</label>
+            <input type="text" name="phone" value="<%= contact.phone %>" placeholder="123456789">
+        </div>
+        <div class="form-group">
+            <label for="linkedin" class="text">LinkedIn Profile</label>
+            <input type="text" name="linkedin" value="<%= contact.linkedin %>" placeholder="">
+        </div>
+        <div class="form-group">
+            <label for="comments" class="text">Comments</label>
+            <input type="text" name="comments" value="<%= contact.comments %>" placeholder="">
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn text-light update">Save</button>
+        </div>
+
+    </div>
+</form>
+       
+    </div>
+</main>
+<!-- /Main Site -->
+
+<!-- include footer -->
+<%- include('include/_footer') %>
+<!-- /include footer -->

@@ -1,0 +1,19 @@
+<% for(var i = 0; i < contacts.length; i++) { %>
+    <tr>
+        <td><%= contacts[i].company %></td>
+        <td><%= contacts[i].person %></td>
+        <td><%= contacts[i].designation %></td>
+        <td><%= contacts[i].email %></td>
+        <td><%= contacts[i].phone %></td>
+        <td><%= contacts[i].linkedin %></td>
+        <td><%= contacts[i].comments %></td>
+        <td>
+            <a href="/update-contact?id=<%= contacts[i]._id%>" class="btn border-shadow update">
+                <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
+            </a>
+            <a class="btn border-shadow delete" data-id=<%= contacts[i]._id%> >
+                <span class="text-gradient"><i class="fas fa-times"></i></span>
+            </a>
+        </td>
+    </tr>
+    <% } %>

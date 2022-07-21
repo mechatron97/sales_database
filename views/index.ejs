@@ -1,0 +1,56 @@
+
+<!-- include header -->
+    <%- include('include/_header') %>
+<!-- /include header -->
+
+
+    <!-- Main Site -->
+    <main id="site-main">
+        <div class="container-fluid">
+
+            <!-- form handling -->
+            <form method="POST">
+                <table class="table table-bordered">
+                    <div>
+                        <thead class="thead-dark">
+                            <tr>
+                                <h1 class="font-weight-bold text-center">
+                                    Welcome
+                                </h1>
+                                <br>
+                                <h3 class="text-center">Select a database</h3>
+                            </tr>
+                        </thead>
+                    </div>
+                    
+                    <tbody>
+                        <br>
+                        <br>
+                        <div class="text-center">
+                            <a href="/records" class="btn btn-outline">
+                                <h2 class="text-success">Sales Data: In Progress</h2>
+                            </a>
+                        </div>
+                        <br>
+                        <div class="text-center">
+                            <a href="/reviews" class="btn btn-outline">
+                                <h2 class="text-success">Sales Data: In Review</h2>
+                            </a>
+                        </div>
+                        <br>
+                       <div class="text-center">
+                        <a href="/emails" class="btn btn-outline">
+                            <h2 class="text-success">Email Subscriptions List</h2>
+                        </a>
+                       </div>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </main>
+<!-- /Main Site -->
+
+
+<!-- include footer -->
+<%- include('include/_footer') %>
+<!-- /include footer -->
