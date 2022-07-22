@@ -47,14 +47,14 @@ exports.find = (req, res)=>{
 
         recorddbs.findById(id)
             .then(data =>{
-                db.$lookup.recorddbs([
-                    {
-                        from: contactdbs,
-                        localField: company,
-                        foreignField: company,
-                        as: contactdbs
-                    }
-                  ]);
+                // db.$lookup.recorddbs([
+                //     {
+                //         from: contactdbs,
+                //         localField: company,
+                //         foreignField: company,
+                //         as: contactdbs
+                //     }
+                //   ]);
                 if(!data){
                     res.status(404).send({ message : "Record not found with id "+ id})
                 }else{
