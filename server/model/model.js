@@ -9,8 +9,7 @@ const recordSchema = new Schema({
     revenue: String,
     hq: String,
     sales: String,
-    priority: String,
-    contacts:[contactsSchema]
+    priority: String
 });
 
 
