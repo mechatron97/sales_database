@@ -4,10 +4,7 @@ const {Schema} = mongoose;
 
 const contactsSchema = Schema({
     
-    company: {
-        type: Schema.Types.ObjectId,
-        ref: 'recorddbs'
-    },
+    company: String,
     person : String,
     designation: String,
     email : String,

@@ -1,6 +1,4 @@
-const mongoose = require('mongoose');
-const {recorddbs, contactdbs} = require('../model/model');
-const {db} = require('../database/connection');
+const {recorddbs} = require('../model/model');
 
 // create and save new user
 exports.create = (req,res)=>{
@@ -47,14 +45,6 @@ exports.find = (req, res)=>{
 
         recorddbs.findById(id)
             .then(data =>{
-                // db.$lookup.recorddbs([
-                //     {
-                //         from: contactdbs,
-                //         localField: company,
-                //         foreignField: company,
-                //         as: contactdbs
-                //     }
-                //   ]);
                 if(!data){
                     res.status(404).send({ message : "Record not found with id "+ id})
                 }else{
