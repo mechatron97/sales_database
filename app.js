@@ -5,7 +5,7 @@ const morgan = require('morgan');
 const bodyparser = require("body-parser");
 const path = require('path');
 const connectDB = require('./server/database/connection');
-const sslRedirect = require('heroku-ssl-redirect');
+// const sslRedirect = require('heroku-ssl-redirect');
 const app = express();
 
 dotenv.config( { path : './config.env'} )
@@ -15,7 +15,7 @@ var port = process.env.PORT || 8080
 app.use(morgan('tiny'));
 
 
-app.use(sslRedirect());
+// app.use(sslRedirect());
 // mongodb connection
 connectDB();
 
