@@ -1,5 +1,40 @@
 const {contactdbs} = require('../model/model2');
 
+const connectDB = require('../database/connection');
+
+const MongoClient = require('mongodb').MongoClient;
+const assert = require('assert');
+
+/*
+ * Requires the MongoDB Node.js Driver
+ * https://mongodb.github.io/node-mongodb-native
+ */
+
+// const agg = [
+//   {
+//     '$lookup': {
+//       'from': 'recorddbs', 
+//       'localField': 'company', 
+//       'foreignField': 'company', 
+//       'as': 'contacts'
+//     }
+//   }
+// ];
+
+// MongoClient.connect(
+//   'mongodb+srv://digy4:1234@cluster0.ipci8.mongodb.net/records?retryWrites=true&w=majority',
+//   { useNewUrlParser: true, useUnifiedTopology: true },
+//   function(connectErr, client) {
+//     assert.equal(null, connectErr);
+//     const coll = client.db('records').collection('contactdbs');
+//     coll.aggregate(agg, (cmdErr, result) => {
+//       assert.equal(null, cmdErr);
+//     });
+//     client.close();
+//   });
+
+
+
 // create and save new user
 exports.create = (req,res)=>{
     // validate request
