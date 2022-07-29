@@ -8,6 +8,8 @@ const connectDB = require('./server/database/connection');
 const sslRedirect = require('heroku-ssl-redirect');
 const app = express();
 
+app.use(sslRedirect());
+
 dotenv.config( { path : './config.env'} )
 var port = process.env.PORT || 8080
 
@@ -15,7 +17,7 @@ var port = process.env.PORT || 8080
 app.use(morgan('tiny'));
 
 
-app.use(sslRedirect());
+
 // mongodb connection
 connectDB();
 
