@@ -5,7 +5,7 @@ const morgan = require('morgan');
 const bodyparser = require("body-parser");
 const path = require('path');
 const connectDB = require('./server/database/connection');
-const sslRedirect = require('heroku-ssl-redirect');
+var sslRedirect = require('heroku-ssl-redirect');
 const app = express();
 
 app.use(sslRedirect());
