@@ -11,7 +11,7 @@ const app = express();
 // app.use(sslRedirect());
 
 dotenv.config( { path : './config.env'} )
-var port = 5000
+var port = process.env.PORT || 8080
 
 // log requests
 app.use(morgan('tiny'));
@@ -51,4 +51,4 @@ app.use('/', require('./server/routes/router'));
 //     res.render('views/index');
 // })
 
-app.listen(process.env.PORT || port, ()=> { console.log(`Server is running on ${port}`)});
+app.listen(port, ()=> { console.log(`Server is running on ${port}`)});
