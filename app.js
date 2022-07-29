@@ -5,10 +5,10 @@ const morgan = require('morgan');
 const bodyparser = require("body-parser");
 const path = require('path');
 const connectDB = require('./server/database/connection');
-var sslRedirect = require('heroku-ssl-redirect');
+// var sslRedirect = require('heroku-ssl-redirect');
 const app = express();
 
-app.use(sslRedirect());
+// app.use(sslRedirect());
 
 dotenv.config( { path : './config.env'} )
 var port = process.env.PORT || 8080
