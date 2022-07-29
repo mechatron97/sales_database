@@ -4,7 +4,7 @@ const { response } = require('express');
 
 exports.homeRoutes = (req, res) => {
     // Make a get request to /api/users
-    axios.get('https://digy4-database.herokuapp.com/')
+    axios.get('https://digy4-database.herokuapp.com')
         .then(function(response){
             res.render('index', {index: response.data});
         })
