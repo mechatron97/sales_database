@@ -36,7 +36,7 @@ exports.add_review = (req, res) =>{
 
 exports.records = (req, res) => {
     // Make a get request to /api/users
-    axios.get('http://digy4-database.herokuapp.com/records')
+    axios.get('http://localhost:3000/api/records')
         .then(function(response){
             res.render('records', { records : response.data });
         })
@@ -47,7 +47,7 @@ exports.records = (req, res) => {
 
 exports.emails = (req, res) => {
     // Make a get request to /api/users
-    axios.get('http://digy4-database.herokuapp.com/emails')
+    axios.get('http://localhost:3000/api/emails')
         .then(function(response){
             res.render('emails', { emails : response.data });
         })
@@ -58,7 +58,7 @@ exports.emails = (req, res) => {
 
 exports.contacts = (req, res) => {
     // Make a get request to /api/users
-    axios.get('http://digy4-database.herokuapp.com/contacts?=id')
+    axios.get('http://localhost:3000/api/contacts?=id')
         .then(function(response){
             res.render('contacts', { contacts : response.data });
         })
@@ -69,7 +69,7 @@ exports.contacts = (req, res) => {
 
 exports.locations = (req, res) => {
     // Make a get request to /api/users
-    axios.get('http://digy4-database.herokuapp.com/locations')
+    axios.get('http://localhost:3000/api/locations')
         .then(function(response){
             res.render('locations', { locations : response.data });
         })
@@ -80,7 +80,7 @@ exports.locations = (req, res) => {
 
 exports.reviews = (req, res) => {
     // Make a get request to /api/users
-    axios.get('http://digy4-database.herokuapp.com/reviews')
+    axios.get('http://localhost:3000/api/reviews')
         .then(function(response){
             res.render('reviews', { reviews : response.data });
         })
@@ -90,7 +90,7 @@ exports.reviews = (req, res) => {
 }
 
 exports.update_record = (req, res) =>{
-    axios.get('http://digy4-database.herokuapp.com/records', { params : { id : req.query.id }})
+    axios.get('http://localhost:3000/api/records', { params : { id : req.query.id }})
         .then(function(recorddata){
             res.render("update_record", { record : recorddata.data})
         })
@@ -100,7 +100,7 @@ exports.update_record = (req, res) =>{
 }
 
 exports.update_contact = (req, res) =>{
-    axios.get('http://digy4-database.herokuapp.com/contacts', { params : { id : req.query.id }})
+    axios.get('http://localhost:3000/api/contacts', { params : { id : req.query.id }})
         .then(function(contactdata){
             res.render("update_contact", { contact : contactdata.data})
         })
@@ -110,7 +110,7 @@ exports.update_contact = (req, res) =>{
 }
 
 exports.update_location = (req, res) =>{
-    axios.get('http://digy4-database.herokuapp.com/locations', { params : { id : req.query.id }})
+    axios.get('http://localhost:3000/api/locations', { params : { id : req.query.id }})
         .then(function(locationdata){
             res.render("update_location", { location : locationdata.data})
         })
@@ -120,7 +120,7 @@ exports.update_location = (req, res) =>{
 }
 
 exports.update_email = (req, res) =>{
-    axios.get('http://digy4-database.herokuapp.com/emails', { params : { id : req.query.id }})
+    axios.get('http://localhost:3000/api/emails', { params : { id : req.query.id }})
         .then(function(emaildata){
             res.render("update_email", { email : emaildata.data})
         })
@@ -130,7 +130,7 @@ exports.update_email = (req, res) =>{
 }
 
 exports.update_review = (req, res) =>{
-    axios.get('http://digy4-database.herokuapp.com/reviews', { params : { id : req.query.id }})
+    axios.get('http://localhost:3000/api/reviews', { params : { id : req.query.id }})
         .then(function(reviewdata){
             res.render("update_review", { review : reviewdata.data})
         })
