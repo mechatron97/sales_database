@@ -16,7 +16,12 @@ exports.create = (req,res)=>{
         revenue : req.body.revenue,
         hq: req.body.hq,
         sales: req.body.sales,
-        priority: req.body.priority
+        first: req.body.first,
+        second: req.body.second,
+        third: req.body.third,
+        fourth: req.body.fourth,
+        priority: req.body.priority,
+        comments: req.body.comments
     })
 
     // save user in the database
