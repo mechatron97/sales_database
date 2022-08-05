@@ -5,10 +5,7 @@ const morgan = require('morgan');
 const bodyparser = require("body-parser");
 const path = require('path');
 const connectDB = require('./server/database/connection');
-// var sslRedirect = require('heroku-ssl-redirect');
 const app = express();
-
-// app.use(sslRedirect());
 
 dotenv.config( { path : './config.env'} )
 // var port = process.env.PORT || 8080
@@ -28,12 +25,31 @@ app.use(express.json());
 
 
 // set view engine
-app.set("view engine", "ejs")
-app.set("views", path.resolve(__dirname, "views/"))
+app.set('view engine', 'ejs')
+app.set('views', path.join(__dirname, '/views'));
+app.use(express.static(path.join(__dirname, '/public')));
+app.engine('html', require('ejs').renderFile);
 
+// const data = {};
+// var ejs = require('ejs');
+// var fs = require('fs');
 
+// ejs.renderFile(path.join(__dirname, '/views/index.ejs'), data, (err, result) => {
+//     if (err) {
+//         console.log('info', 'error encountered: ' + err);
+//         // throw err;
+//     }
+//     else {
+//         try {
+//             fs.writeFileSync('./public/index.html', result, 'utf8');
+//         } catch(err) {
+//             if (err) {
+//                 throw err;
+//             }
+//         }
 
-app.use(express.static("public"));
+//     }
+// });
 
 // load assets
 app.use('/css', express.static(path.resolve(__dirname, "assets/css")))
