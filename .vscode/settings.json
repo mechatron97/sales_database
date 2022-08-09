@@ -1,4 +1,0 @@
-{
-    "appService.defaultWebAppToDeploy": "/subscriptions/1fb57216-a357-49ea-b3d0-183f08ff258e/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/digy4database",
-    "appService.deploySubpath": "."
-}
