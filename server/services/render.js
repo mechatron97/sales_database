@@ -30,6 +30,10 @@ exports.add_email = (req, res) =>{
     res.render('add_email');
 }
 
+exports.add_details= (req, res) =>{
+    res.render('add_details');
+}
+
 exports.records = (req, res) => {
     // Make a get request to /api/users
     axios.get('http://localhost:3000/api/records')
@@ -74,6 +78,17 @@ exports.locations = (req, res) => {
         })
 }
 
+exports.details = (req, res) => {
+    // Make a get request to /api/users
+    axios.get('http://localhost:3000/api/details')
+        .then(function(response){
+            res.render('details', { details : response.data });
+        })
+        .catch(err => {
+            res.send(err);
+        })
+}
+
 exports.update_record = (req, res) =>{
     axios.get('http://localhost:3000/api/records', { params : { id : req.query.id }})
         .then(function(recorddata){
@@ -108,6 +123,16 @@ exports.update_email = (req, res) =>{
     axios.get('http://localhost:3000/api/emails', { params : { id : req.query.id }})
         .then(function(emaildata){
             res.render("update_email", { email : emaildata.data})
+        })
+        .catch(err =>{
+            res.send(err);
+        })
+}
+
+exports.update_details = (req, res) =>{
+    axios.get('http://localhost:3000/api/details', { params : { id : req.query.id }})
+        .then(function(detailsdata){
+            res.render("update_details", { details : detailsdata.data})
         })
         .catch(err =>{
             res.send(err);
