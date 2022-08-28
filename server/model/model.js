@@ -3,7 +3,9 @@ const Schema = mongoose.Schema;
 
 const recordSchema = new Schema({
 
-    company: String,
+    company: 
+    {type:String,
+    required:true},
     website: String,
     size: String,
     revenue: String,

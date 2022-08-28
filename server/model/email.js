@@ -3,7 +3,9 @@ const {Schema} = mongoose;
 
 const emailsSchema = Schema({
     
-    email : String,
+    email:
+    {type: String,
+    required: true},
     name : String,
     company : String,
     designation : String,
