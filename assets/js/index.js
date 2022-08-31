@@ -2,22 +2,12 @@
 $("#add_record").submit(function(event){
     event.preventDefault();
 
+    const data = $(this).serializeArray();
+
     var records = {
         "url" : `http://localhost:3000/api/records`,
         "method" : "POST",
-        "data" : $("form").serialize()
-    }
-
-    var emails = {
-        "url" : `http://localhost:3000/api/emails`,
-        "method" : "POST",
-        "data" : $("form").serialize()
-    }
-
-    var details = {
-        "url" : `http://localhost:3000/api/details`,
-        "method" : "POST",
-        "data" : $("form").serialize()
+        "data" : data
     }
 
     $.ajax(records).done(function(response){
@@ -27,12 +17,18 @@ $("#add_record").submit(function(event){
         alert("Data cannot be empty");
     })
 
-    $.ajax(emails).done(function(response){
-        alert("Data Updated Successfully");
-    })
-    .fail(function(err){
-        alert("Data cannot be empty");
-    })
+})
+
+$("#add_details").submit(function(event){
+    event.preventDefault();
+
+    const data = $(this).serializeArray();
+
+    var details = {
+        "url" : `http://localhost:3000/api/details`,
+        "method" : "POST",
+        "data" : data
+    }
 
     $.ajax(details).done(function(response){
         alert("Data Updated Successfully");
@@ -42,6 +38,27 @@ $("#add_record").submit(function(event){
     })
 
 })
+
+$("#add_email").submit(function(event){
+    event.preventDefault();
+
+    const data = $(this).serializeArray();
+
+    var emails = {
+        "url" : `http://localhost:3000/api/emails`,
+        "method" : "POST",
+        "data" : data
+    }
+
+    $.ajax(emails).done(function(response){
+        alert("Data Updated Successfully");
+    })
+    .fail(function(err){
+        alert("Data cannot be empty");
+    })
+
+})
+
 
 $("#update_record").submit(function(event){
     event.preventDefault();
@@ -59,6 +76,22 @@ $("#update_record").submit(function(event){
         "method" : "PUT",
         "data" : data
     }
+    
+    $.ajax(request1).done(function(response){
+        alert("Data Updated Successfully");
+    })
+
+})
+
+$("#update_email").submit(function(event){
+    event.preventDefault();
+
+    var unindexed_array = $(this).serializeArray();
+    var data = {}
+
+    $.map(unindexed_array, function(n, i){
+        data[n['name']] = n['value']
+    })
 
     var request2 = {
         "url" : `http://localhost:3000/api/emails/${data.id}`,
@@ -66,27 +99,33 @@ $("#update_record").submit(function(event){
         "data" : data
     }
 
+    $.ajax(request2).done(function(response){
+        alert("Data Updated Successfully");
+    })
+
+})
+
+$("#update_details").submit(function(event){
+    event.preventDefault();
+
+    var unindexed_array = $(this).serializeArray();
+    var data = {}
+
+    $.map(unindexed_array, function(n, i){
+        data[n['name']] = n['value']
+    })
+
     var request3 = {
         "url" : `http://localhost:3000/api/details/${data.id}`,
         "method" : "PUT",
         "data" : data
     }
 
-
-    $.ajax(request1).done(function(response){
-        alert("Data Updated Successfully");
-    })
-
-    $.ajax(request2).done(function(response){
-        alert("Data Updated Successfully");
-    })
-
     $.ajax(request3).done(function(response){
         alert("Data Updated Successfully");
     })
 
 })
-
 
 
 if(window.location.pathname == "/records"){

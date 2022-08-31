@@ -161,6 +161,8 @@ table{
     margin: auto;
 }
 
+/* Records page*/
+
 #add_record .form-group,
 #update_record .form-group{
     margin: .4em 0;
@@ -196,4 +198,76 @@ table{
     color: var(--border);
 }
 
+/* Details page*/
 
+#add_details .form-group,
+#update_details .form-group{
+    margin: .4em 0;
+}
+
+#add_details .form-group input[type="text"],
+#update_details .form-group input[type="text"]{
+    width: 100%;
+    padding: .6em 1em;
+    margin: .5em 0;
+    border: 1px solid var(--border);
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 1em;
+    border-radius: .2em;
+}
+
+#add_details .form-group .btn,
+#update_details .form-group .btn{
+    width: 100%;
+    padding: .9em 1em;
+    background-color: #30c744;
+    border: none;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: .2em;
+    margin: .5em 0;
+}
+
+#add_details .form-group .btn:hover,
+#update_details .form-group .btn:hover{
+    background-color: var(--dark);
+    color: var(--border);
+}
+
+/* Email page*/
+
+#add_email .form-group,
+#update_email .form-group{
+    margin: .4em 0;
+}
+
+#add_email .form-group input[type="text"],
+#update_email .form-group input[type="text"]{
+    width: 100%;
+    padding: .6em 1em;
+    margin: .5em 0;
+    border: 1px solid var(--border);
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 1em;
+    border-radius: .2em;
+}
+
+#add_email .form-group .btn,
+#update_email .form-group .btn{
+    width: 100%;
+    padding: .9em 1em;
+    background-color: #30c744;
+    border: none;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: .2em;
+    margin: .5em 0;
+}
+
+#add_email .form-group .btn:hover,
+#update_email .form-group .btn:hover{
+    background-color: var(--dark);
+    color: var(--border);
+}
