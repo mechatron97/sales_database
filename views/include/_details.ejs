@@ -1,0 +1,23 @@
+<% for(var i = 0; i < details.length; i++) { %>
+    <tr>
+        <td><%= details[i].company %></td>
+        <td><%= details[i].india %></td>
+        <td><%= details[i].canada %></td>
+        <td><%= details[i].uk %></td>
+        <td><%= details[i].usa %></td>
+        <td><%= details[i].person %></td>
+        <td><%= details[i].designation %></td>
+        <td><%= details[i].email %></td>
+        <td><%= details[i].phone %></td>
+        <td><%= details[i].linkedin %></td>
+        <td><%= details[i].comments %></td>
+        <td>
+            <a href="/update-details?id=<%= details[i]._id%>" class="btn border-shadow update">
+                <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
+            </a>
+            <a class="btn border-shadow delete" data-target="http://localhost:3000/api/details/${details[i]._id}" data-id="<%= details[i]._id%>" >
+                <span class="text-gradient"><i class="fas fa-times"></i></span>
+            </a>
+        </td>
+    </tr>
+    <% } %>

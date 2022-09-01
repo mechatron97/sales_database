@@ -1,0 +1,67 @@
+ <!-- form handling -->
+ <script>
+    $(document).ready(function(){
+          $("#add_email").submit(function(event){
+          event.preventDefault();
+        
+          const data = $("form").serialize();
+        
+          const emails = {
+            "url": "/app/api/emails/",
+            "method": "POST",
+            "data": data,
+          };
+        
+          $.ajax(emails).done(function(response) {
+            alert("Data added Successfully");
+          }).fail(function(err) {
+                alert("Data cannot be empty");
+              });
+        });
+    });
+    </script>
+ <form action="/app/api/emails/" method="POST" id="add_email">
+    <div class="new_record">
+        <div class="form-group">
+            <label for="email" class="text">Email</label>
+            <input type="text" name="email" value="" placeholder="pat@example.com">
+        </div>
+        <div class="form-group">
+            <label for="name" class="text">Name</label>
+            <input type="text" name="name" value="" placeholder="Johnny Appleseed">
+        </div>
+        <div class="form-group">
+            <label for="company" class="text">Company</label>
+            <input type="text" name="company" value="" placeholder="ABC">
+        </div>
+        <div class="form-group">
+            <label for="designation" class="text">Designation</label>
+            <input type="text" name="designation" value="" placeholder="">
+        </div>
+        <div class="form-group">
+            <label for="country" class="text">Country</label>
+            <input type="text" name="country" value="" placeholder="">
+        </div>
+        <div class="form-group">
+            <label for="source" class="text">Source</label>
+            <input type="text" name="source" value="" placeholder="">
+        </div>
+        <div class="form-group">
+            <label for="status" class="text">Subscription Status</label>
+            <input type="text" name="status" value="" placeholder="">
+        </div>
+        <div class="form-group">
+            <label for="ab" class="text">Added By</label>
+            <input type="text" name="ab" value="" placeholder="">
+        </div>
+        <div class="form-group">
+            <label for="ao" class="text">Added On</label>
+            <input type="text" name="ao" value="" placeholder="">
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn text-light update">Save</button>
+        </div>
+
+    </div>
+</form>

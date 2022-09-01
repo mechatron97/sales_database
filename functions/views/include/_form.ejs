@@ -1,0 +1,79 @@
+ <!-- form handling -->
+ <script>
+$(document).ready(function(){
+      $("#add_record").submit(function(event){
+      event.preventDefault();
+    
+      const data = $("form").serialize();
+    
+      const records = {
+        "url": "/app/api/records",
+        "method": "POST",
+        "data": data,
+      };
+    
+      $.ajax(records).done(function(response) {
+        alert("Data added Successfully");
+      }).fail(function(err) {
+            alert("Data cannot be empty");
+          });
+    });
+});
+</script>
+ <form action="/app/api/records" method="post" id="add_record">
+    <div class="new_record">
+        <div class="form-group">
+            <label for="company" class="text">Company Name</label>
+            <input type="text" name="company" value="" placeholder="ABC Company">
+        </div>
+        <div class="form-group">
+            <label for="website" class="text">Website</label>
+            <input type="text" name="website" value="" placeholder="www.example.com">
+        </div>
+        <div class="form-group">
+            <label for="size" class="text">Size</label>
+            <input type="text" name="size" value="" placeholder="">
+        </div>
+        <div class="form-group">
+            <label for="revenue" class="text">Revenue</label>
+            <input type="text" name="revenue" value="" placeholder="">
+        </div>
+        <div class="form-group">
+            <label for="hq" class="text">HeadQuarters</label>
+            <input type="text" name="hq" value="" placeholder="">
+        </div>
+        <div class="form-group">
+            <label for="sales" class="text">Sales Contact</label>
+            <input type="text" name="sales" value="" placeholder="">
+        </div>
+        <div class="form-group">
+            <label for="first" class="text">First Priority</label>
+            <input type="text" name="first" value="" placeholder="">
+        </div>
+        <div class="form-group">
+            <label for="second" class="text">Second Priority</label>
+            <input type="text" name="second" value="" placeholder="">
+        </div>
+        <div class="form-group">
+            <label for="third" class="text">Third Priority</label>
+            <input type="text" name="third" value="" placeholder="">
+        </div>
+        <div class="form-group">
+            <label for="fourth" class="text"> Fourth Priority</label>
+            <input type="text" name="fourth" value="" placeholder="">
+        </div>
+        <div class="form-group">
+            <label for="priority" class="text">Priority</label>
+            <input type="text" name="priority" value="" placeholder="">
+        </div>
+        <div class="form-group">
+            <label for="comments" class="text">Comments</label>
+            <input type="text" name="comments" value="" placeholder="">
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn text-light update">Save</button>
+        </div>
+
+    </div>
+</form>

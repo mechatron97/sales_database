@@ -1,0 +1,21 @@
+<% for(var i = 0; i < emails.length; i++) { %>
+    <tr>
+        <td><%= emails[i].email %></td>
+        <td><%= emails[i].name %></td>
+        <td><%= emails[i].company %></td>
+        <td><%= emails[i].designation %></td>
+        <td><%= emails[i].country %></td>
+        <td><%= emails[i].source %></td>
+        <td><%= emails[i].status %></td>
+        <td><%= emails[i].ab %></td>
+        <td><%= emails[i].ao %></td>
+        <td>
+            <a href="/app/update-email?id=<%= emails[i]._id%>" class="btn border-shadow update">
+                <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
+            </a>
+            <a class="btn border-shadow delete" data-id=<%= emails[i]._id%> >
+                <span class="text-gradient"><i class="fas fa-times"></i></span>
+            </a>
+        </td>
+    </tr>
+    <% } %>

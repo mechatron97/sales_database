@@ -1,0 +1,74 @@
+
+<!-- include header -->
+<%- include('include/_header') %>
+<!-- /include header -->
+
+
+    <!-- Main Site -->
+    <main id="site-main">
+        <div class="container-fluid">
+            <div class="text-center">
+                <a href="/app/" class="btn btn-outline">
+                    <span class="text-center">Home Page</i></span>
+                </a>
+                <h2>Email Subscriptions List</h2>
+            </div>
+            
+            <div class="box-nav d-flex justify-between">
+                <a href="/app/add-email" class="btn btn-outline">
+                    <span class="text-gradient">New Subscription<i class="fas fa-user"></i></span>
+                </a>
+            </div>
+
+<!-- Delete script -->
+<script>
+$(document).ready(function(){
+    if (window.location.pathname == "/app/emails") {
+        $(".table tbody td a.delete").click(function() {
+        const id = $(this).attr("data-id");
+            
+        const request = {
+            "url": `/app/api/emails/${id}`,
+            "method": "DELETE",
+        };
+            
+    if (confirm("Do you really want to delete this record?")) {
+        $.ajax(request).done(function(response) {
+          alert("Data Deleted Successfully");
+            location.reload();
+            });
+        }
+    });
+    }
+});
+</script>
+            <!-- form handling -->
+            <form action="/app/emails" method="POST">
+                <table class="table table-bordered">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Email</th>
+                            <th>Name</th>
+                            <th>Company</th>
+                            <th>Designation</th>
+                            <th>Country</th>
+                            <th>Source</th>
+                            <th>Subscription Status</th>
+                            <th>Added By</th>
+                            <th>Added On</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%- include('include/_emails') %>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </main>
+<!-- /Main Site -->
+
+
+<!-- include footer -->
+<%- include('include/_footer') %>
+<!-- /include footer -->

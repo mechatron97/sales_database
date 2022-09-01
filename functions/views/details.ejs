@@ -1,0 +1,77 @@
+<!-- include header -->
+<%- include('include/_header') %>
+<!-- /include header -->
+
+ <!-- Main Site -->
+ <main id="site-main">
+    <div class="container-fluid">
+        <div class="text-center">
+            <a href="/app/" class="btn btn-outline">
+                <span class="text-center">Home Page</span>
+            </a>
+            <h2>Details Page</h2>
+        </div>
+        
+        <div class="box-nav d-flex justify-between">
+            <span class="input-group-btn">
+                <a href="/app/add-details" class="btn btn-outline">
+                    <span class="text-gradient">New Record<i class="fas fa-user"></i></span>
+                </a>
+            </span>
+        </div>
+
+ <!-- Delete script -->
+<script>
+    $(document).ready(function(){
+    if (window.location.pathname == "/app/details") {
+  $(".table tbody td a.delete").click(function() {
+    const id = $(this).attr("data-id");
+
+    const request = {
+      "url": `/app/api/details/${id}`,
+      "method": "DELETE",
+    };
+
+    if (confirm("Do you really want to delete this record?")) {
+      $.ajax(request).done(function(response) {
+        alert("Data Deleted Successfully");
+        location.reload();
+      });
+    }
+  });
+}
+});
+</script>  
+
+        <!-- form handling -->
+        <form action="/app/details" method="POST">
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Company Name</th>
+                        <th>India</th>
+                        <th>Canada</th>
+                        <th>UK</th>
+                        <th>USA</th>
+                        <th>Name</th>
+                        <th>Designation</th>
+                        <th>Email</th>
+                        <th>Phone Number</th>
+                        <th>LinkedIn Profile</th>
+                        <th>Comments</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%- include('include/_details') %> 
+                </tbody>
+            </table>
+        </form>
+    </div>
+</main>
+<!-- /Main Site -->
+
+
+<!-- include footer -->
+<%- include('include/_footer') %>
+<!-- /include footer -->

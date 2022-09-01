@@ -1,0 +1,78 @@
+
+<!-- include header -->
+<%- include('include/_header') %>
+<!-- /include header -->
+
+    <!-- Main Site -->
+    <main id="site-main">
+        <div class="container-fluid">
+            <div class="text-center">
+                <a href="/app/" class="btn btn-outline">
+                    <span class="text-center">Home Page</i></span>
+                </a>
+                <h2>Sales In Progress</h2>
+            </div>
+            <div class="box-nav d-flex justify-between">
+                <a href="/app/add-record" class="btn btn-outline">
+                    <span class="text-gradient">New Record<i class="fas fa-user"></i></span>
+                </a>
+            </div>
+
+<!-- Delete script -->
+
+<script>
+    $(document).ready(function(){
+        if (window.location.pathname == "/app/records") {
+        $(".table tbody td a.delete").click(function() {
+            const id = $(this).attr("data-id");
+                            
+            const request = {
+                "url": `/app/api/records/${id}`,
+                "method": "DELETE",
+        };
+                            
+      if (confirm("Do you really want to delete this record?")) {
+            $.ajax(request).done(function(response) {
+              alert("Data Deleted Successfully");
+                location.reload();
+            });
+        }
+    });
+}
+});
+</script>
+
+<!-- form handling -->
+            <form action="/records" method="POST">
+                <table id="table" class="table table-bordered">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Company Name</th>
+                            <th>Website</th>
+                            <th>Size</th>
+                            <th>Revenue</th>
+                            <th>HeadQuarters</th>
+                            <th>Sales Contact</th>
+                            <th>Priority</th>
+                            <th>Details</th>
+                            <th>First Priority</th>
+                            <th>Second Priority</th>
+                            <th>Third Priority</th>
+                            <th>Fourth Priority</th>
+                            <th>Comments</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            <%- include('include/_records'); %>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </main>
+<!-- /Main Site -->
+
+
+<!-- include footer -->
+<%- include('include/_footer') %>
+<!-- /include footer -->
