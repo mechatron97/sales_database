@@ -59,7 +59,7 @@ app.use("/js", express.static(path.join(__dirname, "/node_modules/jquery/dist"))
 // load routers
 app.use("/", require("./server/routes/router"));
 
-app.get("/app/home", function(req, res) {
+app.get("/home", function(req, res) {
   res.render("home");
 });
 
@@ -69,12 +69,12 @@ app.get("/", isLoggedIn, function(req, res) {
 });
 
 // Showing register form
-app.get("/app/register", function(req, res) {
+app.get("/register", function(req, res) {
   res.render("register");
 });
 
 // Handling user signup
-app.post("/app/register", function(req, res) {
+app.post("/register", function(req, res) {
   const username = req.body.username;
   const password = req.body.password;
   User.register(new User({username: username}),
@@ -92,13 +92,13 @@ app.post("/app/register", function(req, res) {
 });
 
 // Showing login form
-app.get("/app/login", function(req, res) {
+app.get("/login", function(req, res) {
   res.render("login");
 });
 
-app.post("/app/login",
+app.post("/login",
     passport.authenticate("local", {
-      successRedirect: "/",
+      successRedirect: "/app/",
       failWithError: true,
     }),
     function(req, res, next) {
@@ -112,14 +112,14 @@ app.post("/app/login",
 );
 
 // Handling user logout
-app.get("/app/logout", function(req, res) {
+app.get("/logout", function(req, res) {
   req.logout();
   res.redirect("/");
 });
 
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) return next();
-  res.redirect("/app/login");
+  res.redirect("/login");
 }
 
 app.listen(PORT, () => {
