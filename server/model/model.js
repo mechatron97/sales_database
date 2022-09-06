@@ -11,11 +11,12 @@ const recordSchema = new Schema({
     revenue: String,
     hq: String,
     sales: String,
+    priority: String,
+    details: [],
     first: String,
     second: String,
     third: String,
     fourth: String,
-    priority: String,
     comments: String
 });
 

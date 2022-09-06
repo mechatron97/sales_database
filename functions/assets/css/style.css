@@ -271,3 +271,46 @@ table{
     background-color: var(--dark);
     color: var(--border);
 }
+
+/*User page*/
+
+#add_user .form-group,
+#update_user .form-group{
+    margin: .4em 0;
+}
+
+#add_user .form-group input:not([type]),
+input[type=text],
+input[type=password],
+input[type=email]
+#update_user .form-group input:not([type]),
+input[type=text],
+input[type=password],
+input[type=email]{
+    width: 100%;
+    padding: .6em 1em;
+    margin: .5em 0;
+    border: 1px solid var(--border);
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 1em;
+    border-radius: .2em;
+}
+
+#add_user .form-group .btn,
+#update_user .form-group .btn{
+    width: 100%;
+    padding: .9em 1em;
+    background-color: #30c744;
+    border: none;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: .2em;
+    margin: .5em 0;
+}
+
+#add_user.form-group .btn:hover,
+#update_user .form-group .btn:hover{
+    background-color: var(--dark);
+    color: var(--border);
+}
