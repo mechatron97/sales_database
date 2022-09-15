@@ -28,6 +28,12 @@ app.use(bodyparser.urlencoded({extended: true}));
 
 app.use(express.json());
 app.use(cookieParser());
+app.set("etag", false);
+
+app.use((req, res, next) => {
+  res.set("Cache-Control", "no-store");
+  next();
+});
 
 // set view engine
 app.set("view engine", "ejs");
