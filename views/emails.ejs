@@ -18,6 +18,19 @@
                 <a href="/add-email" class="btn btn-outline">
                     <span class="text-gradient">New Subscription<i class="fas fa-user"></i></span>
                 </a>
+                <% if (user){ %>
+                <p>Welcome, <%= user.name %></p>
+                <a href="/logout" class="btn btn-outline">
+                    <span class="text-gradient">Log Out<i class="fas fa-angle-double-left"></i></span>
+                </a>
+                <% } else { %>
+                <a href="/login" class="btn btn-outline">
+                    <span class="text-gradient">Log In<i class="fas fa-user"></i></span>
+                </a>
+                <a href="/register" class="btn btn-outline">
+                    <span class="text-gradient">Register<i class="fas fa-user"></i></span>
+                </a>
+                <% } %>
             </div>
             
             <!-- form handling -->

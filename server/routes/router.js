@@ -5,6 +5,8 @@ const services = require('../services/render');
 const controller = require('../controller/controller');
 const emails = require('../controller/emails');
 const details = require('../controller/details');
+const authController = require('../controller/authController');
+const { checkUser, requireAuth } = require('../../middleware/authMiddleware');
 
 /**
  *  @description Root Route
@@ -12,9 +14,12 @@ const details = require('../controller/details');
  */
 route.get('/', services.homeRoutes);
 
-route.get('/emails', services.emails);
-route.get('/records', services.records);
-route.get('/details', services.details);
+route.get('/emails', checkUser, requireAuth, services.emails);
+route.get('/records', checkUser, requireAuth, services.records);
+route.get('/details', checkUser, requireAuth, services.details);
+route.get('/register', authController.register_get);
+route.get('/login', authController.login_get);
+route.get('/logout', authController.logout_get);
 
 /**
  *  @description add users
@@ -35,6 +40,9 @@ route.get('/update-details', services.update_details);
 route.post('/api/records', controller.create);
 route.post('/api/emails', emails.create);
 route.post('/api/details', details.create);
+
+route.post('/register', authController.register_post);
+route.post('/login', authController.login_post);
 
 route.get('/api/', controller.find);
 route.get('/api/emails', emails.find);

@@ -12,27 +12,65 @@
             <span class="text-dark">Use the form below to register</span>
         </div>
 
-<form action="/register" method="POST" id="add_user">
-  <div class="new_record">
-	<div class="form-group">
-		<label for="name">Name</label>
-			<input type="text" name="name" placeholder="Name" required="true">
-	</div>
-	<div class="form-group">
-		<label for="name">Username</label>
-		<input type="email" name="username" placeholder="Username" required="true">
-	</div>
-	<div class="form-group">
-		<label for="name">Password</label>
-		<input type="password" name="password" placeholder="Password" required="true">
-	</div>
-	<div class="form-group">
-		<button type="submit" class="btn text-light update">Register</button>
-	</div>
-	</div>
-</form>
+<form id="add_user">
+    <h2>Sign Up</h2>
+    <label for="name">Name</label>
+    <input type="text" name="name" required />
+    <div class="name error"></div>
 
+    <label for="email">Email</label>
+    <input type="text" name="email" required />
+    <div class="email error"></div>
+
+    <label for="password">Password</label>
+    <input type="password" name="password" required />
+    <div class="password error"></div>
+	<div class="form-group">
+		<button type="submit" class="btn text-light update">Sign Up</button>
+	</div>
+    
+</form>
 </div>
+
+<script>
+    const form = document.querySelector('form');
+    const nameError = document.querySelector('.name.error');
+    const emailError = document.querySelector('.email.error');
+    const passwordError = document.querySelector('.password.error');
+
+    form.addEventListener('submit', async(e) => {
+        e.preventDefault();
+
+        nameError.textContent = '';
+        emailError.textContent = '';
+        passwordError.textContent = '';
+
+        const name = form.name.value;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        try {
+            const res = await fetch('/register', {
+                method: 'POST',
+                body: JSON.stringify({ name, email, password }),
+                headers: { 'Content-Type': 'application/json' }
+            });
+            const data = await res.json();
+            console.log(data);
+            if(data.errors){
+                emailError.textContent = data.errors.email;
+                passwordError.textContent = data.errors.password;
+            }
+            if(data.user){
+                location.assign('/');
+            }
+        } 
+        catch (err) {
+            console.log(err);            
+        }
+        
+    });
+</script>
 
 <!-- include footer -->
 <%- include('include/_footer') %>

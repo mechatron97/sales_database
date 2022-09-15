@@ -18,30 +18,21 @@
                 <a href="/app/add-email" class="btn btn-outline">
                     <span class="text-gradient">New Subscription<i class="fas fa-user"></i></span>
                 </a>
+                <% if (user){ %>
+                <p>Welcome, <%= user.name %></p>
+                <a href="/app/logout" class="btn btn-outline">
+                    <span class="text-gradient">Log Out<i class="fas fa-angle-double-left"></i></span>
+                </a>
+                <% } else { %>
+                <a href="/app/login" class="btn btn-outline">
+                    <span class="text-gradient">Log In<i class="fas fa-user"></i></span>
+                </a>
+                <a href="/app/register" class="btn btn-outline">
+                    <span class="text-gradient">Register<i class="fas fa-user"></i></span>
+                </a>
+                <% } %>
             </div>
-
-<!-- Delete script -->
-<script>
-$(document).ready(function(){
-    if (window.location.pathname == "/app/emails") {
-        $(".table tbody td a.delete").click(function() {
-        const id = $(this).attr("data-id");
             
-        const request = {
-            "url": `/app/api/emails/${id}`,
-            "method": "DELETE",
-        };
-            
-    if (confirm("Do you really want to delete this record?")) {
-        $.ajax(request).done(function(response) {
-          alert("Data Deleted Successfully");
-            location.reload();
-            });
-        }
-    });
-    }
-});
-</script>
             <!-- form handling -->
             <form action="/app/emails" method="POST">
                 <table class="table table-bordered">
