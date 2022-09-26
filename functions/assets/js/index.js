@@ -127,12 +127,12 @@ $("#update_details").submit(function(event) {
 
 // delete data
 
-if (window.location.pathname == "/records") {
+if (window.location.pathname == "/app/records") {
   $(".table tbody td a.delete").click(function() {
     const id = $(this).attr("data-id");
 
     const request = {
-      "url": `http://localhost:3000/api/records/${id}`,
+      "url": `/app/api/records/${id}`,
       "method": "DELETE",
     };
 
@@ -145,12 +145,12 @@ if (window.location.pathname == "/records") {
   });
 }
 
-if (window.location.pathname == "/emails") {
+if (window.location.pathname == "/app/emails") {
   $(".table tbody td a.delete").click(function() {
     const id = $(this).attr("data-id");
 
     const request = {
-      "url": `http://localhost:3000/api/emails/${id}`,
+      "url": `/app/api/emails/${id}`,
       "method": "DELETE",
     };
 
@@ -163,12 +163,12 @@ if (window.location.pathname == "/emails") {
   });
 }
 
-if (window.location.pathname == "/details") {
+if (window.location.pathname == "/app/details") {
   $(".table tbody td a.delete").click(function() {
     const id = $(this).attr("data-id");
 
     const request = {
-      "url": `http://localhost:3000/api/details/${id}`,
+      "url": `/app/api/details/${id}`,
       "method": "DELETE",
     };
 

@@ -26,17 +26,17 @@ route.get("/logout", authController.logout_get);
  *  @description add users
  *  @method GET /add-user
  */
-route.get("/add-record", services.add_record);
-route.get("/add-email", services.add_email);
-route.get("/add-details", services.add_details);
+route.get("/add-record", checkUser, requireAuth, services.add_record);
+route.get("/add-email", checkUser, requireAuth, services.add_email);
+route.get("/add-details", checkUser, requireAuth, services.add_details);
 
 /**
  *  @description for update user
  *  @method GET /update-user
  */
-route.get("/update-record", services.update_record);
-route.get("/update-email", services.update_email);
-route.get("/update-details", services.update_details);
+route.get("/update-record", checkUser, requireAuth, services.update_record);
+route.get("/update-email", checkUser, requireAuth, services.update_email);
+route.get("/update-details", checkUser, requireAuth, services.update_details);
 // API
 route.post("/api/records", controller.create);
 route.post("/api/emails", emails.create);

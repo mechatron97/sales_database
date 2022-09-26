@@ -1,5 +1,6 @@
-const express = require('express');
 const dotenv = require('dotenv');
+dotenv.config( { path : './config.env'} );
+const express = require('express');
 const morgan = require('morgan');
 const bodyparser = require("body-parser");
 const path = require('path');
@@ -8,8 +9,7 @@ const app = express();
 const authRoutes = require('./server/routes/router');
 const cookieParser = require('cookie-parser');
 const { requireAuth, checkUser } = require('./middleware/authMiddleware');
-
-dotenv.config( { path : './config.env'} )
+const cors = require('cors');
 const PORT = 3000;
 
 // log requests
@@ -22,6 +22,7 @@ connectDB();
 app.use(bodyparser.urlencoded({ extended : true}));
 
 app.use(express.json());
+app.use(cors());
 app.use(cookieParser());
 app.set('etag', false);
 
@@ -50,5 +51,6 @@ app.get('*', checkUser);
 app.get('/', (req, res) => res.render('index'));
 app.get('/home', requireAuth, (req, res) => res.render('home'));
 app.use(authRoutes);
+
 
 app.listen(PORT, ()=> { console.log(`Server is running`)});

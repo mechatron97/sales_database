@@ -7,7 +7,7 @@
     <main id="site-main">
         <div class="container-fluid">
             <div class="text-center">
-                <a href="/" class="btn btn-outline">
+                <a href="/app/" class="btn btn-outline">
                     <span class="text-center">Home Page</i></span>
                 </a>
                 <h2>Sales In Progress</h2>
@@ -31,6 +31,28 @@
                 </a>
                 <% } %>
             </div>
+
+    <script>
+$(document).ready(function(){
+if (window.location.pathname == "/app/records") {
+  $(".table tbody td a.delete").click(function() {
+    const id = $(this).attr("data-id");
+
+    const request = {
+      "url": `/app/api/records/${id}`,
+      "method": "DELETE",
+    };
+
+    if (confirm("Do you really want to delete this record?")) {
+      $.ajax(request).done(function(response) {
+        alert("Data Deleted Successfully");
+        location.reload();
+      });
+    }
+  });
+}
+});
+    </script>
 
             <!-- form handling -->
             <form action="/app/records" method="POST">
