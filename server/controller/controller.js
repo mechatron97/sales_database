@@ -43,17 +43,17 @@ exports.create = (req,res)=>{
 
 
 // retrieve and return all users/ retrieve and return a single user
-exports.find = (req, res)=>{
+exports.find = (req, res) => {
 
     if(req.query.id){
         const id = req.query.id;
 
         recorddbs.findById(id)
-            .then(data =>{
+            .then(data => {
                 if(!data){
                     res.status(404).send({ message : "Record not found with id "+ id})
                 }else{
-                    res.send(data)
+                    res.send(data);
                 }
             })
             .catch(err =>{
@@ -69,9 +69,9 @@ exports.find = (req, res)=>{
                 res.status(500).send({ message : err.message || "Error Occurred while retrieving information" })
             })
     }
-
-    
 }
+
+
 
 
 // Update a new identified user by user id

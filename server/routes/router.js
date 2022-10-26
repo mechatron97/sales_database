@@ -4,6 +4,7 @@ const services = require('../services/render');
 const controller = require('../controller/controller');
 const emails = require('../controller/emails');
 const details = require('../controller/details');
+const leads = require('../controller/leads');
 const authController = require('../controller/authController');
 const { checkUser, requireAuth } = require('../../middleware/authMiddleware');
 
@@ -16,6 +17,7 @@ route.get('/', services.homeRoutes);
 route.get('/emails', checkUser, requireAuth, services.emails);
 route.get('/records', checkUser, requireAuth, services.records);
 route.get('/details', checkUser, requireAuth, services.details);
+route.get('/leads', checkUser, requireAuth, services.leads);
 route.get('/register', authController.register_get);
 route.get('/login', authController.login_get);
 route.get('/logout', authController.logout_get);
@@ -47,6 +49,7 @@ route.get('/api/', controller.find);
 route.get('/api/emails', emails.find);
 route.get('/api/records', controller.find);
 route.get('/api/details', details.find);
+route.get('/api/leads', leads.find);
 
 route.put('/api/records/:id', controller.update);
 route.put('/api/emails/:id', emails.update);

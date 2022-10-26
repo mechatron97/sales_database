@@ -48,10 +48,21 @@ exports.emails = (req, res) => {
 }
 
 exports.details = (req, res) => {
-    // Make a get request to /api/users
+    // Make a get request to /api/details
     axios.get('http://localhost:3000/api/details')
         .then(function(response){
             res.render('details', { details : response.data });
+        })
+        .catch(err => {
+            res.send(err);
+        })
+}
+
+exports.leads = (req, res) => {
+    // Make a get request to /api/leads
+    axios.get('http://localhost:3000/api/leads')
+        .then(function(response){
+            res.render('leads', { leads : response.data });
         })
         .catch(err => {
             res.send(err);

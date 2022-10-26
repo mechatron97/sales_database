@@ -1,4 +1,5 @@
 <% for(var i = 0; i < details.length; i++) { %>
+    <% if(details[i].company == company) { %>
     <tr>
         <td><%= details[i].company %></td>
         <td><%= details[i].india %></td>
@@ -21,3 +22,4 @@
         </td>
     </tr>
     <% } %>
+<% } %>
